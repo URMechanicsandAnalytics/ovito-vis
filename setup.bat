@@ -1,9 +1,9 @@
-@echo off
+@ECHO OFF
 FOR /F "tokens=* USEBACKQ" %%F IN (`py --version`) DO (
 SET PYVERSION=%%F
 )
-echo %PYVERSION%
-set /p pyexist= "Does the above prompt say Python 3.10.x? [y/n] : "
+ECHO %PYVERSION%
+SET /p pyexist= "Does the above prompt say Python 3.10.x? [y/n] : "
 IF "%pyexist%"=="n" (
     GOTO NeedInstall
 ) ELSE (
@@ -11,17 +11,17 @@ IF "%pyexist%"=="n" (
 )
 
 :NeedInstall
-set /p needinstall= "Does Python 3.10 need to be installed? [y/n] : "
+SET /p needinstall= "Does Python 3.10 need to be installed? [y/n] : "
 IF "%needinstall%"=="y"  GOTO GetPython
 IF "%needinstall%"=="n"  GOTO FindPython
 
 :FindPython
-echo Looking for available Python 3.10 installations
-FOR /F "tokens=* USEBACKQ" %%F IN (`dir /S C:\python.exe ^| findstr /e Python310`) DO (
+ECHO Looking for available Python 3.10 installations
+FOR /F "tokens=* USEBACKQ" %%F IN (`DIR /S C:\python.exe ^| FINDSTR /e Python310`) DO (
 SET pydir=%%F
 )
-set pydir=%pydir:Directory of =%
-set py310=%pydir%\python.exe
+SET pydir=%pydir:Directory of =%
+SET py310=%pydir%\python.exe
 GOTO EnvSetup
 
 :EnvSetup
