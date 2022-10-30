@@ -16,6 +16,7 @@ IF "%needinstall%"=="y"  GOTO GetPython
 IF "%needinstall%"=="n"  GOTO FindPython
 
 :FindPython
+echo Looking for available Python 3.10 installations
 FOR /F "tokens=* USEBACKQ" %%F IN (`dir /S C:\python.exe ^| findstr /e Python310`) DO (
 SET pydir=%%F
 )
