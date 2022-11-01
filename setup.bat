@@ -12,8 +12,11 @@ IF "%pyexist%"=="n" (
 
 :NeedInstall
 SET /p needinstall= "Does Python 3.10 need to be installed? [y/n] : "
-IF "%needinstall%"=="y"  GOTO GetPython
-IF "%needinstall%"=="n"  GOTO FindPython
+IF "%needinstall%"=="y"  (
+    GOTO GetPython
+) ELSE (
+    GOTO FindPython
+)
 
 :FindPython
 ECHO Looking for available Python 3.10 installations
