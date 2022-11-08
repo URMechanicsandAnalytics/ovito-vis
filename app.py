@@ -150,7 +150,7 @@ class MainWindow(QMainWindow):
     
     def return_pressed(self) -> None:
         behavior = self.inputbox.text()
-        if behavior.upper() not in ["FS","RC","RO"]:
+        if behavior.upper() not in ["FS","RC","RO","BAD"]:
             self.inputbox.clear()
             return
         id = re.findall("[V[0-9]+\.?[0-9]+_A[0-9]+",self.file)[0]

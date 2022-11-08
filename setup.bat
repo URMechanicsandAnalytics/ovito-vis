@@ -4,10 +4,10 @@ SET PYVERSION=%%F
 )
 ECHO %PYVERSION%
 SET /p pyexist= "Does the above prompt say Python 3.10.x? [y/n] : "
-IF "%pyexist%"=="n" (
-    GOTO NeedInstall
-) ELSE (
+IF "%pyexist%"=="y" (
     GOTO EnvSetup
+) ELSE (
+    GOTO NeedInstall
 )
 
 :NeedInstall
